@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>YouVideo-ElasticSearch实现搜索和关键字高亮显示 | Arcane&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="数据显示 进入门户主站后，点击视频列表,列表为空  视频信息需要从ElasticSearch中获取，打开es  同时打开logstash，用来采集对应的MySQL video_pub中的数据到es的yv_video索引中  打开header插件,可视化es数据 12345678npm run start&gt; elasticsearch-head@0.0.0 start D:\elasticse">
+  <meta name="description" content="数据显示">
 <meta property="og:type" content="article">
 <meta property="og:title" content="YouVideo-ElasticSearch实现搜索和关键字高亮显示">
 <meta property="og:url" content="http://yoursite.com/2021/11/16/YouVideo-ElasticSearch%E5%AE%9E%E7%8E%B0%E6%90%9C%E7%B4%A2%E5%92%8C%E5%85%B3%E9%94%AE%E5%AD%97%E9%AB%98%E4%BA%AE%E6%98%BE%E7%A4%BA/index.html">
 <meta property="og:site_name" content="Arcane&#39;s Blog">
-<meta property="og:description" content="数据显示 进入门户主站后，点击视频列表,列表为空  视频信息需要从ElasticSearch中获取，打开es  同时打开logstash，用来采集对应的MySQL video_pub中的数据到es的yv_video索引中  打开header插件,可视化es数据 12345678npm run start&gt; elasticsearch-head@0.0.0 start D:\elasticse">
+<meta property="og:description" content="数据显示">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/daee8559ff01418ea5dbf2fb87fd4881.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/7b799c24a48f4da5985f323467484a11.png">
@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/335d5b04e30d4d87804cd01b75fed89f.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQXJjYW5lNjY=,size_20,color_FFFFFF,t_70,g_se,x_16">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/51a7390e3a584a0a8bad0fd02ab428e6.png">
 <meta property="article:published_time" content="2021-11-16T08:23:26.127Z">
-<meta property="article:modified_time" content="2021-11-15T05:56:38.524Z">
+<meta property="article:modified_time" content="2021-11-18T06:06:19.522Z">
 <meta property="article:author" content="Arcane">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/daee8559ff01418ea5dbf2fb87fd4881.png">
@@ -191,7 +191,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="数据显示"><a href="#数据显示" class="headerlink" title="数据显示"></a>数据显示</h4><p><img src="https://img-blog.csdnimg.cn/daee8559ff01418ea5dbf2fb87fd4881.png" alt="在这里插入图片描述"></p>
+        <h4 id="数据显示"><a href="#数据显示" class="headerlink" title="数据显示"></a>数据显示</h4><a id="more"></a>
+
+<p><img src="https://img-blog.csdnimg.cn/daee8559ff01418ea5dbf2fb87fd4881.png" alt="在这里插入图片描述"></p>
 <p>进入门户主站后，点击视频列表,列表为空</p>
 <p><img src="https://img-blog.csdnimg.cn/7b799c24a48f4da5985f323467484a11.png" alt="在这里插入图片描述"></p>
 <p>视频信息需要从ElasticSearch中获取，打开es</p>
@@ -480,6 +482,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">CSDN迁移</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>

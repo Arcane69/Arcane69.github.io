@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>YouVideo在线视频平台 | Arcane&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言由于Java生态庞大且复杂，各种术语技术栈层出不穷，为了避免学一个技术做一个Demo的情况，也为了增长项目经验，希望做一个项目能够整合生态中的技术，YouVideo因此诞生… YouVideo是一个视频项目，也可以理解成传统的电商项目，除了基本的登录退出，后台管理之外，项目中的“付费视频”可以认为是电商系统中的商品，同样包含订单模块，使用乐观锁解决幂等问题，使用fastDFS做图片存储，mon">
+  <meta name="description" content="前言由于Java生态庞大且复杂，各种术语技术栈层出不穷，为了避免学一个技术做一个Demo的情况，也为了增长项目经验，希望做一个项目能够整合生态中的技术，YouVideo因此诞生…">
 <meta property="og:type" content="article">
 <meta property="og:title" content="YouVideo在线视频平台">
 <meta property="og:url" content="http://yoursite.com/2021/11/16/YouVideo%E5%9C%A8%E7%BA%BF%E8%A7%86%E9%A2%91%E5%B9%B3%E5%8F%B0/index.html">
 <meta property="og:site_name" content="Arcane&#39;s Blog">
-<meta property="og:description" content="前言由于Java生态庞大且复杂，各种术语技术栈层出不穷，为了避免学一个技术做一个Demo的情况，也为了增长项目经验，希望做一个项目能够整合生态中的技术，YouVideo因此诞生… YouVideo是一个视频项目，也可以理解成传统的电商项目，除了基本的登录退出，后台管理之外，项目中的“付费视频”可以认为是电商系统中的商品，同样包含订单模块，使用乐观锁解决幂等问题，使用fastDFS做图片存储，mon">
+<meta property="og:description" content="前言由于Java生态庞大且复杂，各种术语技术栈层出不穷，为了避免学一个技术做一个Demo的情况，也为了增长项目经验，希望做一个项目能够整合生态中的技术，YouVideo因此诞生…">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/23adf6d0b0b14f66844671de64592c46.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/53670cfb824b4833843d1edfd3fce06e.png">
@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/f78bb4e740ef400e9077308db53ab8b5.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/be61cc23277c4c54ac9b938b8c8317cc.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQXJjYW5lNjY=,size_20,color_FFFFFF,t_70,g_se,x_16">
 <meta property="article:published_time" content="2021-11-16T08:23:26.129Z">
-<meta property="article:modified_time" content="2021-11-16T03:27:52.934Z">
+<meta property="article:modified_time" content="2021-11-18T06:06:28.366Z">
 <meta property="article:author" content="Arcane">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/23adf6d0b0b14f66844671de64592c46.png">
@@ -197,6 +197,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>由于Java生态庞大且复杂，各种术语技术栈层出不穷，为了避免学一个技术做一个Demo的情况，也为了增长项目经验，希望做一个项目能够整合生态中的技术，YouVideo因此诞生…</p>
+<a id="more"></a>
+
 <p><strong>YouVideo是一个视频项目，也可以理解成传统的电商项目，除了基本的登录退出，后台管理之外，项目中的“付费视频”可以认为是电商系统中的商品</strong>，同样包含订单模块，使用乐观锁解决幂等问题，使用fastDFS做图片存储，mongoDB和GridFS里面都存了什么？前后端分离之后要如何协调？与之配套的CMS又是什么？大量已知，未知功能，需在探索项目中发现…</p>
 <h3 id="一-YouVideo是个什么样的项目？"><a href="#一-YouVideo是个什么样的项目？" class="headerlink" title="一.YouVideo是个什么样的项目？"></a>一.YouVideo是个什么样的项目？</h3><h4 id="1-1背景"><a href="#1-1背景" class="headerlink" title="1.1背景"></a>1.1背景</h4><p>随着互联网的发展，人们不用在被动的接受电视播放的内容和令人烦躁的广告，用户可以主动的选择自己所感兴趣的内容，同时催生新生行业自媒体,从而出现了不少优秀的UP主，为人们带来生动有趣的视频，丰富了人们的生活。</p>
 <p>根据百度百科发布的数据显示，2019年blibili营业额达到67.78亿元 人民币，未来市场规模保持高速增长,而YouTube更是达到了1059亿!</p>
@@ -339,6 +341,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2021/11/18/%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          个人简历
+        
+      </div>
+    </a>
+  
   
     <a href="/2021/11/16/YouVideo-ElasticSearch%E5%AE%9E%E7%8E%B0%E6%90%9C%E7%B4%A2%E5%92%8C%E5%85%B3%E9%94%AE%E5%AD%97%E9%AB%98%E4%BA%AE%E6%98%BE%E7%A4%BA/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">YouVideo-ElasticSearch实现搜索和关键字高亮显示</div>
@@ -478,6 +489,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">CSDN迁移</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
