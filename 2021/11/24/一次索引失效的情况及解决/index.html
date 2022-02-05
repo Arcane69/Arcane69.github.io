@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>一次索引失效的情况及解决 | Arcane&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="建立索引，有时候不一定好使，比如…… 123456789101112CREATE TABLE &#96;my_data&#96; (  &#96;primary_key&#96; int(11) NOT NULL AUTO_INCREMENT COMMENT &#39;&#39;,  &#96;source_id&#96; bigint(19) DEFAULT &#39;-1&#39; COMMENT &#39;&#39;,  &#96;data_attribute&#96; char(16) DEFAUL">
+  <meta name="description" content="建立索引，有时候不一定好使，比如……">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一次索引失效的情况及解决">
 <meta property="og:url" content="http://yoursite.com/2021/11/24/%E4%B8%80%E6%AC%A1%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88%E7%9A%84%E6%83%85%E5%86%B5%E5%8F%8A%E8%A7%A3%E5%86%B3/index.html">
 <meta property="og:site_name" content="Arcane&#39;s Blog">
-<meta property="og:description" content="建立索引，有时候不一定好使，比如…… 123456789101112CREATE TABLE &#96;my_data&#96; (  &#96;primary_key&#96; int(11) NOT NULL AUTO_INCREMENT COMMENT &#39;&#39;,  &#96;source_id&#96; bigint(19) DEFAULT &#39;-1&#39; COMMENT &#39;&#39;,  &#96;data_attribute&#96; char(16) DEFAUL">
+<meta property="og:description" content="建立索引，有时候不一定好使，比如……">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/66ff70853c3d4dc6bcdb76210ed2ae0d.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/ec49bf9ffe37406098dd2f0ac7f71e26.png">
@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/4ab74281ae744b08bbf1ebba91c8dcad.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/ee0f195cc70843fa968f1e4bc6e985c8.png">
 <meta property="article:published_time" content="2021-11-24T09:43:28.087Z">
-<meta property="article:modified_time" content="2021-11-24T09:52:18.145Z">
+<meta property="article:modified_time" content="2022-02-05T12:06:49.719Z">
 <meta property="article:author" content="Arcane">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/66ff70853c3d4dc6bcdb76210ed2ae0d.png">
@@ -189,6 +189,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>建立索引，有时候不一定好使，比如……</p>
+<a id="more"></a>
+
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`my_data`</span> (</span><br><span class="line">  <span class="string">`primary_key`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT <span class="keyword">COMMENT</span> <span class="string">''</span>,</span><br><span class="line">  <span class="string">`source_id`</span> <span class="built_in">bigint</span>(<span class="number">19</span>) <span class="keyword">DEFAULT</span> <span class="string">'-1'</span> <span class="keyword">COMMENT</span> <span class="string">''</span>,</span><br><span class="line">  <span class="string">`data_attribute`</span> <span class="built_in">char</span>(<span class="number">16</span>) <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">''</span>,</span><br><span class="line">  <span class="string">`one_level`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="string">'-1'</span> <span class="keyword">COMMENT</span> <span class="string">''</span>,</span><br><span class="line">  <span class="string">`two_level`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="string">'-1'</span> <span class="keyword">COMMENT</span> <span class="string">''</span>,</span><br><span class="line">  <span class="string">`three_level`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="string">'-1'</span> <span class="keyword">COMMENT</span> <span class="string">''</span>,</span><br><span class="line">  <span class="string">`value`</span> <span class="built_in">float</span>(<span class="number">45</span>,<span class="number">6</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">''</span>,</span><br><span class="line">  <span class="string">`quality_factor`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="string">'-1'</span> <span class="keyword">COMMENT</span> <span class="string">''</span>,</span><br><span class="line">  <span class="string">`save_time`</span> datetime <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">CURRENT_TIMESTAMP</span> <span class="keyword">COMMENT</span> <span class="string">''</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`primary_key`</span>) <span class="keyword">USING</span> BTREE</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> AUTO_INCREMENT=<span class="number">11080001</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8 ROW_FORMAT=DYNAMIC;</span><br></pre></td></tr></table></figure>
 
 <p>先插入1000，0000条数据</p>
